@@ -1,0 +1,39 @@
+@import 'reset';
+
+@import 'libs/bootstrap';
+
+@import 'flex';
+@import 'fonts';
+
+@import 'header';
+@import 'footer';
+@import 'sections';
+
+body {
+    font-family: sans-serif !important;
+    margin: 0;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+.fullwidth {
+    width: 100%;
+}
+
+.nomargin {
+    margin: 0 !important;
+}
+
+.fullscreen-absolute {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.noscroll {
+    overflow: hidden;
+}
+
+.noselect {
+    user-select: none; /* Non-prefixed version, currently */
+}

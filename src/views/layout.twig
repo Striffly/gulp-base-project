@@ -1,0 +1,65 @@
+{% block doctype %}<!DOCTYPE html>{% endblock %}
+
+{% block document %}
+<html lang="fr">
+<head>
+
+    {% block metatags %}
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <link rel="icon" href="assets/img/favicon.ico" />
+        {#<meta http-equiv="X-UA-Compatible" content="IE=edge">#}
+    {% endblock %}
+
+    {% block stylesheets %}
+        {% if environment == 'dev' %}
+            <link rel="stylesheet" href="assets/css/style.css">
+        {% else %}
+            <link rel="stylesheet" href="assets/css/style.min.css">
+        {% endif %}
+    {% endblock %}
+</head>
+
+{% block body %}
+    <body class="eq-height columns-direction">
+
+    {% block layout %}
+        {% block header %}
+        {% endblock %}
+
+        {% block main %}
+            <main class="fit-container">
+                {% block content_head %}
+                {% endblock %}
+                <section class="container">
+                    {% block content_title %}{% endblock %}
+
+                    {% block content %}
+                    {% endblock %}
+                </section>
+                {% block content_bottom %}{% endblock %}
+            </main>
+        {% endblock %}
+
+        {% block footer %}
+        {% endblock %}
+
+    {% endblock %}
+
+    {% block javascripts %}
+        {% if environment == 'dev' %}
+        <script src="assets/js/app.js"></script>
+        <script type="text/javascript">
+            if(/MSIE \d|Trident.*rv:/.test(navigator.userAgent))
+                document.write('<script src="https://getfirebug.com/firebug-lite.js"><\/script>');
+        </script>
+        {% else %}
+            <script src="assets/js/app.min.js"></script>
+        {% endif %}
+
+    {% endblock %}
+    </body>
+{% endblock %}
+</html>
+
+{% endblock %}
